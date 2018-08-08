@@ -32,9 +32,9 @@ class App extends Component {
 	.then(data => {
 	    let boats = data.map((boat, index) => {
 		return (
-		    <div key={index}>
-			<h3>{boat.name}</h3>
-			<p>Tags: {boat.photo}</p>
+		    <div key={index} className="col-sm-6">
+			<h3>{boat.name} - {boat.type}</h3>
+			<p><img src={boat.photo} /></p>
 		    </div>
 		)
 	     })
@@ -68,26 +68,18 @@ class App extends Component {
           <Container>
             <Row>
               <Col>
-                <h1>Welcome to React</h1>
-                <p>
-                  <Button
-                    tag="a"
-                    color="success"
-                    size="large"
-                    href="http://reactstrap.github.io"
-                    target="_blank"
-                  >
-                    View Reactstrap Docs
-                  </Button>
-                </p>
+                <h1>Boats</h1>
+
               </Col>
             </Row>
           </Container>
         </Jumbotron>
-	<div>
-		<h1>Boats</h1>
-		{this.state.boats}	
+	<div className="container">
+	    <div className="row" >
+	    	{this.state.boats}
+	    </div>	
 	</div>
+
       </div>
     );
   }
