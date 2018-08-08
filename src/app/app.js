@@ -20,9 +20,28 @@ class App extends Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      boats: []
     };
   }
+
+  componentDidMount() {
+    let url = "http://localhost:3000/boats"
+    fetch(url)
+	.then(resp => resp.json())
+	.then(data => {
+	    let boats = data.map((boat, index) => {
+		return (
+		    <div key={index}>
+			<h3>{boat.name}</h3>
+			<p>Tags: {boat.photo}</p>
+		    </div>
+		)
+	     })
+	     this.setState({boats: boats});
+	})
+  } 
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -65,6 +84,10 @@ class App extends Component {
             </Row>
           </Container>
         </Jumbotron>
+	<div>
+		<h1>Boats</h1>
+		{this.state.boats}	
+	</div>
       </div>
     );
   }
