@@ -8,7 +8,11 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/app/'
     },
+     resolve: {
+        extensions: ['.js', '.jsx', '.css']
+    },
     module: {
+	
         rules: [
             {
                 test: /\.js$/,
