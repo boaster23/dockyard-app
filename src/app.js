@@ -13,6 +13,8 @@ import {
   Jumbotron,
   Button
 } from 'reactstrap';
+import PostForm from './PostForm';
+import AllPost from './AllPost';
 
 class App extends Component {
   constructor(props) {
@@ -77,7 +79,11 @@ class App extends Component {
 	<div className="container">
 	    <div className="row" >
 	    	{this.state.boats}
-	    </div>	
+	    </div>
+	    <div className="row">
+	    	<PostForm />
+        	<AllPost />
+	    </div>
 	</div>
 
       </div>
