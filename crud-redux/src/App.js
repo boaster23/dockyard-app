@@ -15,6 +15,7 @@ import {
 } from 'reactstrap';
 import PostForm from './PostForm';
 import AllPost from './AllPost';
+import AllBoat from './AllBoat';
 
 class App extends Component {
   constructor(props) {
@@ -27,22 +28,7 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    let url = "http://localhost:3000/boats"
-    fetch(url)
-	.then(resp => resp.json())
-	.then(data => {
-	    let boats = data.map((boat, index) => {
-		return (
-		    <div key={index} className="col-sm-6">
-			<h3>{boat.name} - {boat.type}</h3>
-			<p><img src={boat.photo} /></p>
-		    </div>
-		)
-	     })
-	     this.setState({boats: boats});
-	})
-  } 
+ 
 
   toggle() {
     this.setState({
@@ -78,7 +64,9 @@ class App extends Component {
         </Jumbotron>
 	<div className="container">
 	    <div className="row" >
-	    	{this.state.boats}
+	    	<AllBoat />
+		<PostForm />	    	
+		<AllPost />
 	    </div>
 
 	</div>

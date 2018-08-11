@@ -13,7 +13,7 @@ class Post extends Component {
        Edit</button>
       <button 
       onClick={()=>this.props.dispatch({type:'DELETE_POST',id:this.props.post.id})}>
-      Delete</button>
+      Delete</button> 
     </div>
   );
  }
