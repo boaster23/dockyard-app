@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Container,
+  Row,
+  Col,
+  Jumbotron,
+  Button
+} from 'reactstrap';
 
-import EditComponent from './EditComponent';
+
+import ShowBoat from './ShowBoat';
+import Boat from './Boat';
+
 
 class AllBoat extends Component {
 
@@ -11,37 +27,46 @@ class AllBoat extends Component {
     		super(props);
 
     	
-    	this.state = {
-      	   boats: []
-    	};
+    	
   	}
 
     componentDidMount() {
     let url = "http://localhost:3000/boats"
+ 	
     fetch(url)
 	.then(resp => resp.json())
 	.then(data => {
-	    let boats = data.map((boat, index) => {
-		return (
-		    <div key={index} className="col-sm-6">
-			<h3>{boat.name} - {boat.type}</h3>
-			<p><img src={boat.photo} /></p>
-		    </div>
-		)
-	     })
-	     this.setState({boats: boats});
+		console.log(data)
+	    this.props.dispatch({type:'LOAD_BOATS', data})
+	
 	})
-  }
+    }
 
     render() {
         return (
             <div>
-                <h1>All Boats</h1>
-                {this.state.boats}
-            </div>
+	    	<div className="row">
+{console.log(this.props.boats)}
+		 {this.props.boats.map((boat) => (
+		
+		    <div  className="col-sm-6" >
+			{console.log(boat)}
+
+		
+		{boat.detailview ? <ShowBoat id={boat.id} /> : <Boat boat={boat} />}	
+			
+		    </div>
+		))}
+            	</div>
+	   </div>
         );
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        boats: state
+    }
+}
 
-export default AllBoat;
+export default connect(mapStateToProps)(AllBoat);

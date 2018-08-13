@@ -13,9 +13,21 @@ import {
   Jumbotron,
   Button
 } from 'reactstrap';
+
+// import route Components here
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from 'react-router-dom'
+
 import PostForm from './PostForm';
 import AllPost from './AllPost';
 import AllBoat from './AllBoat';
+import ShowBoat from './ShowBoat';
+
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +41,6 @@ class App extends Component {
   }
 
  
-
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -37,6 +48,7 @@ class App extends Component {
   }
   render() {
     return (
+   
       <div>
         <Navbar color="inverse" inverse toggleable>
           <NavbarToggler right onClick={this.toggle} />
@@ -63,15 +75,13 @@ class App extends Component {
           </Container>
         </Jumbotron>
 	<div className="container">
-	    <div className="row" >
-	    	<AllBoat />
-		<PostForm />	    	
-		<AllPost />
-	    </div>
+		
+		<AllBoat />
 
 	</div>
 
       </div>
+    
     );
   }
 }

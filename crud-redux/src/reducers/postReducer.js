@@ -2,7 +2,16 @@
 const postReducer = (state = [], action) => {
   switch(action.type) {
     case 'LOAD_BOATS':
-      return state.concat([action.data]);
+	 return state.concat(action.data)
+    case 'LOAD_BOAT':
+	 return state.map((boat)=>{
+        if(boat.id === action.id) {
+          return {
+             ...boat,
+             detailview: action.detailview
+	    }
+          } else return boat;
+       })
     case 'ADD_POST':
       return state.concat([action.data]);
     case 'DELETE_POST':
