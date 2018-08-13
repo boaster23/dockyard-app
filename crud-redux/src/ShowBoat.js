@@ -31,5 +31,4 @@ class ShowBoat extends Component {
 }
 
 
-
-export default ShowBoat
+export default connect()(ShowBoat)

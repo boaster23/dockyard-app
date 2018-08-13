@@ -16,17 +16,23 @@ const postReducer = (state = [], action) => {
     case 'DELETE_BOAT':
       return state.filter((boat)=>boat.id !== action.id);
     case 'EDIT_BOAT':
-      return state.map((boat)=>boat.id === action.id ? {...boat,editing:!boat.editing}:boat)
+      return state.map((boat)=>boat.id === action.id ? {...boat,editing:!boat.editing, detailview:!boat.detailview}:boat)
     case 'UPDATE':
-      return state.map((post)=>{
-        if(post.id === action.id) {
+      return state.map((boat)=>{
+        if(boat.id === action.id) {
           return {
-             ...post,
-             title:action.data.newTitle,
-             message:action.data.newMessage,
-             editing: !post.editing
+             ...boat,
+             name:action.data.newName,
+             type:action.data.newType,
+	     photo:action.data.newPhoto,
+	     work_description:action.data.newWorkDescription,
+	     length:action.data.newLength,
+	     delivery_date:action.data.newDeliveryDate,
+	     arrival_date:action.data.newArrivalDate,
+	     status:action.data.newStatus,
+             editing: !boat.editing
           }
-        } else return post;
+        } else return boat;
       })
     default:
       return state;
