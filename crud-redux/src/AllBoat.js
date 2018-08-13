@@ -53,7 +53,7 @@ class AllBoat extends Component {
 			{console.log(boat)}
 
 		
-		{boat.detailview ? <ShowBoat id={boat.id} /> : <Boat boat={boat} />}	
+		{boat.detailview ? <ShowBoat boat={boat} /> : <Boat boat={boat} />}	
 			
 		    </div>
 		))}

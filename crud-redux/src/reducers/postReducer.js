@@ -12,12 +12,11 @@ const postReducer = (state = [], action) => {
 	    }
           } else return boat;
        })
-    case 'ADD_POST':
-      return state.concat([action.data]);
-    case 'DELETE_POST':
-      return state.filter((post)=>post.id !== action.id);
-    case 'EDIT_POST':
-      return state.map((post)=>post.id === action.id ? {...post,editing:!post.editing}:post)
+   
+    case 'DELETE_BOAT':
+      return state.filter((boat)=>boat.id !== action.id);
+    case 'EDIT_BOAT':
+      return state.map((boat)=>boat.id === action.id ? {...boat,editing:!boat.editing}:boat)
     case 'UPDATE':
       return state.map((post)=>{
         if(post.id === action.id) {
