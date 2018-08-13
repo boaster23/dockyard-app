@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EditBoat from './EditBoat';
+import BoatForm from './BoatForm';
 
 import {
   Collapse,
@@ -27,7 +28,9 @@ class AllBoat extends Component {
 	constructor(props) {
     		super(props);
 
-
+   		this.state = {
+     	  	showForm: false
+    		};
   	}
 
     componentDidMount() {
@@ -45,16 +48,23 @@ class AllBoat extends Component {
     render() {
         return (
             <div>
-	    	<div className="row">
-		{console.log(this.props.boats)}
-		 {this.props.boats.map((boat) => (
-		    <div  className="col-sm-6" >
-			{console.log(boat)}
-			{boat.detailview ? <ShowBoat boat={boat} /> : boat.editing ? <EditBoat boat={boat} /> : <Boat boat={boat} />}
-		    </div>
-		))}
-            	</div>
-	   </div>
+	      <div className="row">
+			<div className="col-sm-4">
+		 		<BoatForm /> 
+			</div>
+			<div className="col-sm-8">
+		   		<div className="row">
+		 			{this.props.boats.map((boat) => (
+		    				<div className="col-sm-6" >
+
+						{boat.detailview ? <ShowBoat boat={boat} /> : boat.editing ? <EditBoat boat={boat} /> : <Boat boat={boat} />}
+		    				</div>
+					))}
+				</div>
+			</div>
+		</div>
+              </div> 
+	   
         );
     }
 }

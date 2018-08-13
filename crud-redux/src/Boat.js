@@ -15,7 +15,7 @@ class Boat extends Component {
 	<a href="#" onClick={()=>this.props.dispatch({type:'LOAD_BOAT',id:boat.id, detailview:true})}>
 	<h3 >{boat.name} - {boat.type}</h3>
 	
-	<p><img src={boat.photo} /></p>
+	<p><img src={boat.photo} className="img-responsive" /></p>
 	
 	</a>
 	</div>	

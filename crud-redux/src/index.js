@@ -6,9 +6,9 @@ import { createStore, applyMiddleware  } from 'redux';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import postReducer from './reducers/postReducer';
+import boatReducer from './reducers/boatReducer';
 
-const store = createStore(postReducer, composeWithDevTools(
+const store = createStore(boatReducer, composeWithDevTools(
   applyMiddleware()
 ));
 ReactDOM.render(

@@ -27,6 +27,7 @@ import PostForm from './PostForm';
 import AllPost from './AllPost';
 import AllBoat from './AllBoat';
 import ShowBoat from './ShowBoat';
+import BoatForm from './BoatForm';
 
 
 class App extends Component {
@@ -35,8 +36,7 @@ class App extends Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false,
-      boats: []
+      isOpen: false
     };
   }
 
@@ -75,9 +75,8 @@ class App extends Component {
           </Container>
         </Jumbotron>
 	<div className="container">
-		
-		<AllBoat />
 
+		 <AllBoat />
 	</div>
 
       </div>
