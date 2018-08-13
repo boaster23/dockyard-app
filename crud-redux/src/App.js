@@ -23,8 +23,7 @@ import {
   Redirect
 } from 'react-router-dom'
 
-import PostForm from './PostForm';
-import AllPost from './AllPost';
+
 import AllBoat from './AllBoat';
 import ShowBoat from './ShowBoat';
 import BoatForm from './BoatForm';

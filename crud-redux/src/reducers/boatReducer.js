@@ -14,7 +14,7 @@ const boatReducer = (state = [], action) => {
        })
     case 'ADD_BOAT':
 	action.data.id=state.length+1
-	return state.concat(action.data)
+	return state.concat([action.data])
     case 'DELETE_BOAT':
       return state.filter((boat)=>boat.id !== action.id);
     case 'EDIT_BOAT':
