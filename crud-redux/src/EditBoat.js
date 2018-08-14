@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import DatePicker from 'react-datepicker';
+import Datetime from 'react-datetime';
 import Moment from 'react-moment';
 import moment from 'moment';
+import WorkerSearch from './WorkerSearch';
+import DatePicker from 'react-date-picker';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 class EditBoat extends Component {
@@ -60,17 +64,16 @@ return (
     defaultValue={this.props.boat.photo} cols="28" placeholder="Enter Photo" /><br /><br />
     <input required rows="5" ref={(input) => this.getLength = input}
     defaultValue={this.props.boat.length} cols="28" placeholder="Enter Length" /><br /><br />
-    <input required rows="5" ref={(input) => this.getDeliveryDate = input}
-    defaultValue={this.props.boat.delivery_date} cols="28" placeholder="Enter work description" /><br /><br />
-
     <input required rows="5" ref={(input) => this.getArrivalDate = input}
-    defaultValue={this.props.boat.arrival_date} cols="28" placeholder="Enter Length" /><br /><br />
-
+    defaultValue={this.props.boat.arrival_date} cols="28" placeholder="Enter Arrival Date" /><br /><br />
+    <input required rows="5" ref={(input) => this.getDeliveryDate = input}
+    defaultValue={this.props.boat.delivery_date} cols="28" placeholder="Enter Delivery Date" /><br /><br />
     <textarea required rows="5" ref={(input) => this.getWorkDescription = input}
     defaultValue={this.props.boat.work_description} cols="28" placeholder="Enter work description" /><br /><br />
     <input required rows="5" ref={(input) => this.getStatus = input}
     defaultValue={this.props.boat.status} cols="28" placeholder="Enter Status" /><br /><br />
-    <button>Update</button>
+    <WorkerSearch boatid={this.props.boat.id} /><br /><br />
+    <button>Update</button><br /><br />
   </form>
 </div>
 );

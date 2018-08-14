@@ -25,12 +25,12 @@ import Boat from './Boat';
 
 class AllBoat extends Component {
 
-	constructor(props) {
-    		super(props);
+    constructor(props) {
+    	super(props);
 
-   		this.state = {
-     	  	showForm: false
-    		};
+   	  this.state = {
+     	    showForm: false
+    	  };
   	}
 
     componentDidMount() {
@@ -49,21 +49,20 @@ class AllBoat extends Component {
         return (
             <div>
 	      <div className="row">
-			<div className="col-sm-4">
-		 		<BoatForm /> 
-			</div>
-			<div className="col-sm-8">
-		   		<div className="row">
-		 			{this.props.boats.map((boat) => (
-		    				<div className="col-sm-6" >
-
-						{boat.detailview ? <ShowBoat boat={boat} /> : boat.editing ? <EditBoat boat={boat} /> : <Boat boat={boat} />}
-		    				</div>
-					))}
-				</div>
-			</div>
-		</div>
-              </div> 
+		  <div className="col-4">
+		 	<BoatForm /> 
+		  </div>
+		  <div className="col-8">
+		     <div className="row">
+		 	{this.props.boats.map((boat) => (
+		    		<div className="col-6" >
+				{boat.detailview ? <ShowBoat boat={boat} /> : boat.editing ? <EditBoat boat={boat} /> : <Boat boat={boat} />}
+		    		</div>
+			))}
+		     </div>
+		 </div>
+	      </div>
+            </div> 
 	   
         );
     }
