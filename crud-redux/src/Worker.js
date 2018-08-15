@@ -7,14 +7,15 @@ class Worker extends React.Component {
 
     render () {
         let workers = this.props.state.workers;
+
         let optionItems = workers.map((worker) =>
-                <option key={worker.name}>{worker.name}</option>
+                <option value={worker.name}>{worker.name}</option>
             );
 
         return (
          <div>
-             <select>
-		<option key="--select--">--select--</option>
+             <select value={this.props.boatid}>
+		<option value="--select--">--select--</option>
                 {optionItems}
              </select>
          </div>

@@ -72,7 +72,6 @@ return (
     defaultValue={this.props.boat.work_description} cols="28" placeholder="Enter work description" /><br /><br />
     <input required rows="5" ref={(input) => this.getStatus = input}
     defaultValue={this.props.boat.status} cols="28" placeholder="Enter Status" /><br /><br />
-    <WorkerSearch boatid={this.props.boat.id} /><br /><br />
     <button>Update</button><br /><br />
   </form>
 </div>

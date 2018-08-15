@@ -7,7 +7,7 @@ class ShowBoat extends Component {
 
   render() {
     const { boat } = this.props;	
-//const boat = boats.find(p => p.id == this.props.id);
+
 
     return boat ? (
       <div>     

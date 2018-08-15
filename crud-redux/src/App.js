@@ -25,8 +25,7 @@ import {
 
 
 import AllBoat from './AllBoat';
-import ShowBoat from './ShowBoat';
-import BoatForm from './BoatForm';
+import WorkerSearch from './WorkerSearch';
 
 
 class App extends Component {
@@ -34,11 +33,18 @@ class App extends Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+    this.toggleworkers = this.toggleworkers.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      showWorker: false
     };
   }
 
+  toggleworkers() {
+    this.setState({
+      showWorker: !this.state.showWorker
+    });
+  }
  
   toggle() {
     this.setState({
@@ -67,21 +73,25 @@ class App extends Component {
           <Container>
             <Row>
               <Col>
-                <h1>Boats</h1>
-
+                <h1>The Dockyard</h1>
               </Col>
             </Row>
           </Container>
         </Jumbotron>
 	<div className="container">
-
-		 <AllBoat />
+	    <div className="row" >
+		<Col>
+		<Button onClick={this.toggleworkers}>Assign Workers</Button>
+		</Col>
+	    </div>
+	    <div className="row" >
+	    	{this.state.showWorker ? <WorkerSearch /> : <AllBoat /> }
+	    </div>
 	</div>
-
-      </div>
-    
+    </div>
     );
   }
 }
+
 
 export default App;
