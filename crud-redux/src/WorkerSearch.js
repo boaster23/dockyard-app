@@ -15,8 +15,9 @@ class WorkerSearch extends Component {
     }
 
 handleChange(e) {
+    let worker=this.state.workers.filter((worker)=>worker.id == e.target.value);
     this.setState({ 
-	workerid: e.target.value,
+	worker: worker,
 	showWorker: true
  });
 }
@@ -58,7 +59,7 @@ render() {
                 {optionItems}
            </select>
 	
-	{this.state.showWorker ? <AssignWorker workerid={this.state.workerid} /> : '' }
+	{this.state.showWorker ? <AssignWorker worker={this.state.worker} /> : '' }
 	</div>
     );
 }

@@ -10,11 +10,18 @@ state = {
 }
 
 componentDidMount() {
+	let boatIdArray=[];
+	let i=[];
+	console.log(this.props.worker[0].boatIds)
+	let wopts = this.props.worker[0].boatIds.map((boatid) =>{
+		i=this.props.boats.filter((boat)=>boat.id == boatid);
+		boatIdArray.push({value: boatid, label: i[0].name})	
+	});
 	let optionsArr=[];
    	let options = this.props.boats.map((boat) => {
    	   optionsArr.push({value: boat.id , label: boat.name});
    	});
-	this.setState({opts:optionsArr})
+	this.setState({opts:optionsArr, selectedOption: boatIdArray})
 }
   
 handleChange = (selectedOption) => {
@@ -39,6 +46,7 @@ render() {
 		placeholder="Please select boats for this worker"
       	/>
 	</p>
+	
       </div>
     );
   }
