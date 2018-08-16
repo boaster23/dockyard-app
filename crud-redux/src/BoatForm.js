@@ -42,6 +42,7 @@ return (
 <div>
   <h1>Create Boat</h1>
   <form onSubmit={this.handleSubmit}>
+    
     <input required type="text" ref={(input) => this.getName = input}
      placeholder="Enter Boat Name" /><br /><br />
     <input required rows="5" ref={(input) => this.getType = input}
@@ -51,10 +52,10 @@ return (
     <input required rows="5" ref={(input) => this.getLength = input}
      cols="28" placeholder="Enter Length" /><br /><br />
     <input required rows="5" ref={(input) => this.getDeliveryDate = input}
-     cols="28" placeholder="Enter work description" /><br /><br />
+     cols="28" placeholder="Enter delivery date" /><br /><br />
 
     <input required rows="5" ref={(input) => this.getArrivalDate = input}
-     cols="28" placeholder="Enter Length" /><br /><br />
+     cols="28" placeholder="Enter Arrival Date" /><br /><br />
 
     <textarea required rows="5" ref={(input) => this.getWorkDescription = input}
      cols="28" placeholder="Enter work description" /><br /><br />

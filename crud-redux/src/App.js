@@ -82,7 +82,7 @@ class App extends Component {
         </Jumbotron>
 	<div className="container">
 	    <div className="row" >
-	    	{this.state.showWorker ? <WorkerSearch /> : <AllBoat loadBoats={this.state.loadBoats} /> }
+	    	{this.state.showWorker ? <WorkerSearch showWorker={this.state.showWorker}/> : <AllBoat loadBoats={this.state.loadBoats} /> }
 	    </div>
 	</div>
     </div>

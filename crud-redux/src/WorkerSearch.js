@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Route, withRouter} from 'react-router-dom';
 import AssignWorker from './AssignWorker';
+import Select from 'react-select';
 import { connect } from 'react-redux';
 
 
@@ -11,17 +12,17 @@ class WorkerSearch extends Component {
 	this.handleChange = this.handleChange.bind(this);
         this.state = {
             workers: [],
-	    showWorker:false
+	    showWorker:false,
+	    selectedOption: null
         };
     }
 
-handleChange(e) {
-    let worker=this.state.workers.filter((worker)=>worker.id == e.target.value);
-    this.setState({ 
-	worker: worker,
-	showWorker: true
- });
+handleChange = (selectedOption) => {
+    let worker=this.state.initialWorkers.filter((worker)=>worker.id === selectedOption.value);
+    this.setState({ selectedOption ,showWorker: true, worker: worker});
+    console.log(`Option selected:`, selectedOption);
 }
+
 
 componentDidMount() {
     let initialWorkers = [];
@@ -34,37 +35,36 @@ componentDidMount() {
         });
 	
         console.log(initialWorkers);
-        this.setState({
-            workers: initialWorkers,
-	    workerid: 0
-        });
+
+	let optionItems = initialWorkers.map((worker) =>
+		{return {value: worker.id, label: worker.name}});
+	this.setState({optionItems: optionItems, initialWorkers: initialWorkers});
 	
-	this.props.dispatch({type:'LOAD_WORKERS', initialWorkers});
+	//this.props.dispatch({type:'LOAD_WORKERS', initialWorkers});
     });
 }
 
 
 render() {
-    let workers = this.state.workers;
 
-    let optionItems = workers.map((worker) =>
-        <option value={worker.id} >{worker.name}</option>
-    );
     return (
 	<div>
 	   <h1>Edit Worker Tasks</h1>
+		<p>
+	<Select
+        	value={this.state.selectedOption}
+        	onChange={this.handleChange}
+        	options={this.state.optionItems}
+		placeholder="Select a worker to edit"
+      	/>
+	</p>
 	   
-           <select onChange={this.handleChange}>
-		<option value="0"></option>
-                {optionItems}
-           </select>
-	
-	{this.state.showWorker ? <AssignWorker worker={this.state.worker} /> : '' }
+
+	{this.state.showWorker ? <AssignWorker worker={this.state.worker} showWorker={this.props.showWorker} /> : '' }
 	</div>
     );
 }
 }
-
 
 export default connect() (WorkerSearch);
 

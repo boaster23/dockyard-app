@@ -37,8 +37,10 @@ handleUpdate = (e) => {
              ...this.props.worker[0],
 		boatIds: boatids
           }
+	
 	console.log('boatsid'+boatids)
 	APIData({method:"PATCH",data: sentData, API_PATH: API_PATH});
+	this.props.showWorker=false
 }
   
 render() {
