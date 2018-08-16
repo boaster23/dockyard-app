@@ -1,6 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 import { connect } from 'react-redux';
+import APIData from './APIData';
 
 
 class AssignWorker extends React.Component {
@@ -29,24 +30,33 @@ handleChange = (selectedOption) => {
     console.log(`Option selected:`, selectedOption);
 }
 
+handleUpdate = (e) => {
+	e.preventDefault();                                           
+	let API_PATH = '/workers/'+this.props.worker[0].id
+	let boatids = this.state.selectedOption.map((ids) => {return ids.value}); 
+
+	APIData({method:"PATCH",data: boatids, API_PATH: API_PATH});
+}
   
 render() {
-   const { selectedOption } = this.state;  
-
+   const { selectedOption,opts } = this.state;  
 
     return (
       <div>
-      	
+      	<p>&nbsp;</p>
+	<form onSubmit={this.handleUpdate}> 
 	<p>
 	<Select
         	value={selectedOption}
         	onChange={this.handleChange}
-        	options={this.state.opts}
+        	options={opts}
 		isMulti
 		placeholder="Please select boats for this worker"
       	/>
 	</p>
 	
+	<p><button>Update</button><br /><br /></p>
+	</form>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
+
 class BoatForm extends Component {
   handleSubmit = (e) => {
   e.preventDefault();
@@ -23,8 +24,9 @@ class BoatForm extends Component {
     status
   }
     this.props.dispatch({
-      type:'ADD_BOAT',
-      data});
+    type:'ADD_BOAT',
+    data});
+
     this.getName.value = '';
     this.getType.value = '';
     this.getPhoto.value = '';

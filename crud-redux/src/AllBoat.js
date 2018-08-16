@@ -35,17 +35,21 @@ class AllBoat extends Component {
 
     componentDidMount() {
     let url = "http://localhost:3000/boats"
- 	
+    let initialBoats = [];
     fetch(url)
 	.then(resp => resp.json())
 	.then(data => {
-		console.log(data)
-	    	this.props.dispatch({type:'LOAD_BOATS', data})
+	    initialBoats = data.map((boat) => {
+               return boat
+            });
+		console.log(initialBoats)
+	    	this.props.dispatch({type:'LOAD_BOATS', initialBoats})
 	
 	})
     }
 
     render() {
+	console.log(this.props.boatsStore)
         return (
             <div>
 	      <div className="row">
@@ -54,8 +58,10 @@ class AllBoat extends Component {
 		  </div>
 		  <div className="col-8">
 		     <div className="row">
-		 	{this.props.boats.map((boat) => (
+		 	{this.props.boatsStore.map((boat) => (
+				
 		    		<div className="col-6" >
+				{console.log(boat)}
 				{boat.detailview ? <ShowBoat boat={boat} /> : boat.editing ? <EditBoat boat={boat} /> : <Boat boat={boat} />}
 		    		</div>
 			))}
@@ -70,7 +76,7 @@ class AllBoat extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        boats: state
+        boatsStore: state
     }
 }
 

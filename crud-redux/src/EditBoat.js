@@ -49,6 +49,8 @@ handleEdit = (e) => {
     newDeliveryDate,
     newStatus
   }
+
+ 
   this.props.dispatch({ type: 'UPDATE', id: this.props.boat.id, data: data })
 }
 render() {

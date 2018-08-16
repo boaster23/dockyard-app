@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Route, withRouter} from 'react-router-dom';
 import AssignWorker from './AssignWorker';
+import { connect } from 'react-redux';
 
 
 class WorkerSearch extends Component {
@@ -38,10 +39,9 @@ componentDidMount() {
 	    workerid: 0
         });
 	
-	
+	this.props.dispatch({type:'LOAD_WORKERS', initialWorkers});
     });
 }
-
 
 
 render() {
@@ -66,6 +66,6 @@ render() {
 }
 
 
-export default WorkerSearch;
+export default connect() (WorkerSearch);
 
 

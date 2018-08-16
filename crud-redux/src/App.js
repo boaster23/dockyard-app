@@ -27,7 +27,6 @@ import {
 import AllBoat from './AllBoat';
 import WorkerSearch from './WorkerSearch';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -74,17 +73,17 @@ class App extends Component {
             <Row>
               <Col>
                 <h1>The Dockyard</h1>
+		<p ><Button onClick={this.toggleworkers}>Toggle Worker Assignment</Button></p>
               </Col>
             </Row>
           </Container>
         </Jumbotron>
 	<div className="container">
+	
+			
+	
 	    <div className="row" >
-		<Col>
-		<Button onClick={this.toggleworkers}>Assign Workers</Button>
-		</Col>
-	    </div>
-	    <div className="row" >
+		
 	    	{this.state.showWorker ? <WorkerSearch /> : <AllBoat /> }
 	    </div>
 	</div>
