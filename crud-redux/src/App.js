@@ -35,13 +35,15 @@ class App extends Component {
     this.toggleworkers = this.toggleworkers.bind(this);
     this.state = {
       isOpen: false,
-      showWorker: false
+      showWorker: false,
+      loadBoats: true
     };
   }
 
   toggleworkers() {
     this.setState({
-      showWorker: !this.state.showWorker
+      showWorker: !this.state.showWorker,
+      loadBoats: false
     });
   }
  
@@ -79,12 +81,8 @@ class App extends Component {
           </Container>
         </Jumbotron>
 	<div className="container">
-	
-			
-	
 	    <div className="row" >
-		
-	    	{this.state.showWorker ? <WorkerSearch /> : <AllBoat /> }
+	    	{this.state.showWorker ? <WorkerSearch /> : <AllBoat loadBoats={this.state.loadBoats} /> }
 	    </div>
 	</div>
     </div>

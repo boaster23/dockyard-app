@@ -33,19 +33,22 @@ class AllBoat extends Component {
     	  };
   	}
 
-    componentDidMount() {
-    let url = "http://localhost:3000/boats"
-    let initialBoats = [];
-    fetch(url)
-	.then(resp => resp.json())
-	.then(data => {
-	    initialBoats = data.map((boat) => {
-               return boat
-            });
+   componentDidMount() {
+	
+      if(this.props.loadBoats) {
+    	let url = "http://localhost:3000/boats"
+    	let initialBoats = [];
+    	fetch(url)
+		.then(resp => resp.json())
+		.then(data => {
+	    		initialBoats = data.map((boat) => {
+               		return boat
+            	});
 		console.log(initialBoats)
 	    	this.props.dispatch({type:'LOAD_BOATS', initialBoats})
 	
-	})
+		})
+       }	
     }
 
     render() {

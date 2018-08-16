@@ -6,9 +6,7 @@ const boatReducer = (state = [], action) => {
   let data={};
 
   switch(action.type) {
-    case 'LOAD_WORKERS':
-	 let workers=[action.initialWorkers];
-	 return state.concat(workers)
+   
     case 'LOAD_BOATS':
 	 return state.concat(action.initialBoats)
     case 'LOAD_BOAT':

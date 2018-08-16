@@ -13,7 +13,6 @@ state = {
 componentDidMount() {
 	let boatIdArray=[];
 	let i=[];
-	console.log(this.props.worker[0].boatIds)
 	let wopts = this.props.worker[0].boatIds.map((boatid) =>{
 		i=this.props.boats.filter((boat)=>boat.id == boatid);
 		boatIdArray.push({value: boatid, label: i[0].name})	
@@ -31,11 +30,15 @@ handleChange = (selectedOption) => {
 }
 
 handleUpdate = (e) => {
-	e.preventDefault();                                           
+	e.preventDefault();                                     
 	let API_PATH = '/workers/'+this.props.worker[0].id
-	let boatids = this.state.selectedOption.map((ids) => {return ids.value}); 
-
-	APIData({method:"PATCH",data: boatids, API_PATH: API_PATH});
+	let boatids = this.state.selectedOption.map((ids) => {return ids.value});
+	let sentData={
+             ...this.props.worker[0],
+		boatIds: boatids
+          }
+	console.log('boatsid'+boatids)
+	APIData({method:"PATCH",data: sentData, API_PATH: API_PATH});
 }
   
 render() {

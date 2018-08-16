@@ -25,6 +25,39 @@
       "status": "under repair",
       "detailview": false,
       "editing": false
+    },
+    {
+      "name": "Boat 3",
+      "type": "Laser",
+      "photo": "http://via.placeholder.com/350x150/51A143",
+      "length": "8",
+      "work_description": "csdc",
+      "arrival_date": "8",
+      "delivery_date": "hgui",
+      "status": "state",
+      "id": 3
+    },
+    {
+      "name": "Boat 4",
+      "type": "P Class",
+      "photo": "http://via.placeholder.com/350x150/51A143",
+      "length": "7",
+      "work_description": "nihoho",
+      "arrival_date": "dsfds",
+      "delivery_date": "hhihih",
+      "status": "state",
+      "id": 4
+    },
+    {
+      "name": "Boat 5",
+      "type": "Flying Fifteen",
+      "photo": "http://via.placeholder.com/350x150/269AB3",
+      "length": "20",
+      "work_description": "bb",
+      "arrival_date": "bbb",
+      "delivery_date": "yyy",
+      "status": "state",
+      "id": 5
     }
   ],
   "workers": [
@@ -35,7 +68,9 @@
       "photo": "http://via.placeholder.com/150x150/DE8142",
       "boatIds": [
         1,
-        2
+        2,
+        4,
+        5
       ]
     },
     {
@@ -44,7 +79,10 @@
       "phone": "22222222",
       "photo": "http://via.placeholder.com/150x150/B66AA3",
       "boatIds": [
-        1
+        1,
+        2,
+        4,
+        5
       ]
     }
   ]
