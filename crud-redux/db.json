@@ -30,10 +30,10 @@
       "name": "Boat 3",
       "type": "Laser",
       "photo": "http://via.placeholder.com/350x150/51A143",
-      "length": "8",
-      "work_description": "csdc",
-      "arrival_date": "8",
-      "delivery_date": "hgui",
+      "length": "9",
+      "work_description": "needs a new sail",
+      "arrival_date": "now",
+      "delivery_date": "later",
       "status": "state",
       "id": 3,
       "detailview": false,
@@ -44,10 +44,10 @@
       "type": "P Class",
       "photo": "http://via.placeholder.com/350x150/51A143",
       "length": "7",
-      "work_description": "tt",
+      "work_description": "needs work",
       "arrival_date": "now",
       "delivery_date": "later",
-      "status": "state",
+      "status": "some state",
       "id": 4,
       "detailview": false,
       "editing": false
@@ -57,11 +57,26 @@
       "type": "Flying Fifteen",
       "photo": "http://via.placeholder.com/350x150/269AB3",
       "length": "20",
-      "work_description": "bb",
-      "arrival_date": "bbb",
-      "delivery_date": "yyy",
-      "status": "state",
-      "id": 5
+      "work_description": "replace keel",
+      "arrival_date": "later",
+      "delivery_date": "now",
+      "status": "underwater",
+      "id": 5,
+      "detailview": false,
+      "editing": false
+    },
+    {
+      "name": "Boat 6",
+      "type": "Sunburst",
+      "photo": "http://via.placeholder.com/350x150/51A143",
+      "length": "7",
+      "work_description": "needs a mast",
+      "arrival_date": "later",
+      "delivery_date": "now",
+      "status": "inactive",
+      "id": 6,
+      "detailview": false,
+      "editing": false
     }
   ],
   "workers": [
@@ -72,8 +87,7 @@
       "photo": "http://via.placeholder.com/150x150/DE8142",
       "boatIds": [
         1,
-        3,
-        4
+        3
       ]
     },
     {

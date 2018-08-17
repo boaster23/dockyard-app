@@ -17,7 +17,7 @@ class ShowBoat extends Component {
 	<p><strong>Photo: </strong><br />{boat.photo}</p>
 	<p><strong>Length: </strong><br /> {boat.length}</p>
 	<p><strong>Arrival date: </strong> 
-	{boat.arrival_date} />
+	{boat.arrival_date}
 	</p> 
 	<p><strong>Delivery date: </strong>{boat.delivery_date} </p>
 	<p><strong>Status: </strong> {boat.status} </p>
