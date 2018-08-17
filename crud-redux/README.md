@@ -1,12 +1,12 @@
-#Dockyard Application
+# Dockyard Application
 
-##Coder:
+## Coder:
 Beau Broadhead
 
-##About: 
+## About: 
 A sample CRUD application that enables a user to record the status of boats in an imaginary dockyard. A demonstration of React-Redux technology.
 
-##Instructions:
+## Instructions:
 1. Clone this repo to your computer 
 2. Install and run the JSON-server (https://github.com/typicode/json-server)
 3. Run 'npm init' then 'npm start' from command line to begin the development server and make the application ready
