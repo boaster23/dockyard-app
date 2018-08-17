@@ -5,14 +5,32 @@ import APIData from './APIData';
 
 
 class AssignWorker extends React.Component {
-  
-state = {
-    selectedOption: null
+
+ constructor() {
+        super(); 
+        this.state = {
+	    selectedOption: null
+        };
+    }
+
+
+componentDidUpdate(prevProps) {
+  if (this.props.worker !== prevProps.worker) {
+    this.fetchWorker()
+  }
 }
 
-componentDidMount() {
+//componentWillReceiveProps(nextProps) {
+  //if (nextProps.refresh !== refresh) {
+//    this.setState({ worker: nextProps.worker}); 
+//    this.fetchWorker()  
+  //}
+//}
+
+fetchWorker() {
 	let boatIdArray=[];
 	let i=[];
+	console.log(`worker`,this.props.worker[0])
 	let wopts = this.props.worker[0].boatIds.map((boatid) =>{
 		i=this.props.boats.filter((boat)=>boat.id == boatid);
 		boatIdArray.push({value: boatid, label: i[0].name})	
@@ -21,7 +39,12 @@ componentDidMount() {
    	let options = this.props.boats.map((boat) => {
    	   optionsArr.push({value: boat.id , label: boat.name});
    	});
-	this.setState({opts:optionsArr, selectedOption: boatIdArray})
+	this.setState({opts:optionsArr, selectedOption: boatIdArray});
+	
+}
+
+componentDidMount() {
+	this.fetchWorker()
 }
   
 handleChange = (selectedOption) => {
@@ -40,12 +63,11 @@ handleUpdate = (e) => {
 	
 	console.log('boatsid'+boatids)
 	APIData({method:"PATCH",data: sentData, API_PATH: API_PATH});
-	this.props.showWorker=false
 }
   
 render() {
-   const { selectedOption,opts } = this.state;  
-
+   let { selectedOption,opts } = this.state; 
+   let { worker } = this.props; 
     return (
       <div>
       	<p>&nbsp;</p>
@@ -56,12 +78,16 @@ render() {
         	onChange={this.handleChange}
         	options={opts}
 		isMulti
-		placeholder="Please select boats for this worker"
-      	/>
+		placeholder="Please select boats for this worker"/>
 	</p>
-	
-	<p><button>Update</button><br /><br /></p>
+	<p><button>Update</button></p>
 	</form>
+	<hr />
+	<p><img src={worker[0].photo} /></p>
+	
+	<p><strong>Name: </strong>{worker[0].name}</p>
+	<p><strong>Phone: </strong>{worker[0].phone}</p>
+	
       </div>
     );
   }

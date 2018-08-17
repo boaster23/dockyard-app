@@ -24,7 +24,7 @@ import {
 } from 'react-router-dom'
 
 
-import AllBoat from './AllBoat';
+import AllBoat from './AllBoat'; 
 import WorkerSearch from './WorkerSearch';
 
 class App extends Component {
@@ -36,14 +36,16 @@ class App extends Component {
     this.state = {
       isOpen: false,
       showWorker: false,
-      loadBoats: true
+      loadBoats: true,
+      buttonText: 'Assign Workers'
     };
   }
 
   toggleworkers() {
     this.setState({
       showWorker: !this.state.showWorker,
-      loadBoats: false
+      loadBoats: false,
+      buttonText: !this.state.showWorker ? 'Show All Boats' : 'Assign Workers'
     });
   }
  
@@ -75,14 +77,14 @@ class App extends Component {
             <Row>
               <Col>
                 <h1>The Dockyard</h1>
-		<p ><Button onClick={this.toggleworkers}>Toggle Worker Assignment</Button></p>
+		<p><Button onClick={this.toggleworkers}>{this.state.buttonText}</Button></p>
               </Col>
             </Row>
           </Container>
         </Jumbotron>
 	<div className="container">
 	    <div className="row" >
-	    	{this.state.showWorker ? <WorkerSearch showWorker={this.state.showWorker}/> : <AllBoat loadBoats={this.state.loadBoats} /> }
+	    	{this.state.showWorker ? <WorkerSearch  /> : <AllBoat loadBoats={this.state.loadBoats} /> }
 	    </div>
 	</div>
     </div>

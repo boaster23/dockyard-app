@@ -62,7 +62,6 @@ class AllBoat extends Component {
 		  <div className="col-8">
 		     <div className="row">
 		 	{this.props.boatsStore.map((boat) => (
-				
 		    		<div className="col-6" >
 				{console.log(boat)}
 				{boat.detailview ? <ShowBoat boat={boat} /> : boat.editing ? <EditBoat boat={boat} /> : <Boat boat={boat} />}

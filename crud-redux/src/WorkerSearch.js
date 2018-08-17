@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 class WorkerSearch extends Component {
     constructor() {
-        super();
+        super(); 
 	this.handleChange = this.handleChange.bind(this);
         this.state = {
             workers: [],
@@ -17,10 +17,10 @@ class WorkerSearch extends Component {
         };
     }
 
+
 handleChange = (selectedOption) => {
     let worker=this.state.initialWorkers.filter((worker)=>worker.id === selectedOption.value);
     this.setState({ selectedOption ,showWorker: true, worker: worker});
-    console.log(`Option selected:`, selectedOption);
 }
 
 
@@ -40,7 +40,6 @@ componentDidMount() {
 		{return {value: worker.id, label: worker.name}});
 	this.setState({optionItems: optionItems, initialWorkers: initialWorkers});
 	
-	//this.props.dispatch({type:'LOAD_WORKERS', initialWorkers});
     });
 }
 
@@ -59,13 +58,13 @@ render() {
       	/>
 	</p>
 	   
-
-	{this.state.showWorker ? <AssignWorker worker={this.state.worker} showWorker={this.props.showWorker} /> : '' }
+	{console.log(`passedin`,this.state.worker)}
+	{this.state.showWorker ? <AssignWorker worker={this.state.worker}  /> : '' }
+	
 	</div>
     );
 }
 }
 
 export default connect() (WorkerSearch);
-
 
