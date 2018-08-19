@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "xxx",
+    "password": "w0ndermouse",
     "database": "dockyard",
     "host": "127.0.0.1",
     "port": "3306",
@@ -9,15 +9,15 @@
   },
   "test": {
     "username": "root",
-    "password": "p",
-    "database": "db_task_two_test",
+    "password": null,
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "p",
-    "database": "db_task_two_prod",
+    "password": null,
+    "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
