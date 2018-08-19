@@ -26,6 +26,7 @@ import {
 
 import AllBoat from './AllBoat'; 
 import WorkerSearch from './WorkerSearch';
+import BoatForm from './BoatForm'; 
 
 class App extends Component {
   constructor(props) {
@@ -33,19 +34,33 @@ class App extends Component {
 
     this.toggle = this.toggle.bind(this);
     this.toggleworkers = this.toggleworkers.bind(this);
+    this.togglecreate = this.togglecreate.bind(this);
+    this.allboats = this.allboats.bind(this);
     this.state = {
       isOpen: false,
-      showWorker: false,
-      loadBoats: true,
-      buttonText: 'Assign Workers'
+      showScreen: 'AllBoats',
+      loadBoats: true
     };
+  }
+
+  allboats() {
+    this.setState({
+      showScreen: 'AllBoats',
+      loadBoats: false
+    });
+  }
+
+  togglecreate() {
+    this.setState({
+      showScreen: 'Create',
+      loadBoats: false
+    });
   }
 
   toggleworkers() {
     this.setState({
-      showWorker: !this.state.showWorker,
-      loadBoats: false,
-      buttonText: !this.state.showWorker ? 'Show All Boats' : 'Assign Workers'
+      showScreen: 'Workers',
+      loadBoats: false
     });
   }
  
@@ -64,14 +79,15 @@ class App extends Component {
             <Row>
               <Col>
                 <h1>The Dockyard</h1>
-		<p><Button onClick={this.toggleworkers}>{this.state.buttonText}</Button></p>
+		<p><Button onClick={this.allboats}>Show All Boats</Button>&nbsp;&nbsp;<Button onClick={this.toggleworkers}>Assign Workers</Button>&nbsp;&nbsp;
+<Button onClick={this.togglecreate}>Create a Boat</Button></p>
               </Col>
             </Row>
           </Container>
         </Jumbotron>
 	<div className="container">
 	    <div className="row" >
-	    	{this.state.showWorker ? <WorkerSearch  /> : <AllBoat loadBoats={this.state.loadBoats} /> }
+	    	{this.state.showScreen == 'Workers' ? <WorkerSearch allboats={this.allboats} /> :  this.state.showScreen == 'Create' ? <BoatForm allboats={this.allboats} /> : <AllBoat loadBoats={this.state.loadBoats} />}
 	    </div>
 	</div>
     </div>

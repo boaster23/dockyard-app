@@ -59,7 +59,7 @@ render() {
 	</p>
 	   
 	{console.log(`passedin`,this.state.worker)}
-	{this.state.showWorker ? <AssignWorker worker={this.state.worker}  /> : '' }
+	{this.state.showWorker ? <AssignWorker worker={this.state.worker} allboats={this.props.allboats} /> : '' }
 	
 	</div>
     );

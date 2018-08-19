@@ -33,7 +33,7 @@ fetchWorker() {
 	console.log(`worker`,this.props.worker[0])
 	let wopts = this.props.worker[0].boatIds.map((boatid) =>{
 		i=this.props.boats.filter((boat)=>boat.id == boatid);
-		boatIdArray.push({value: boatid, label: i[0].name})	
+		(i.length ? boatIdArray.push({value: boatid, label: i[0].name}) : '');	
 	});
 	let optionsArr=[];
    	let options = this.props.boats.map((boat) => {
@@ -63,6 +63,7 @@ handleUpdate = (e) => {
 	
 	console.log('boatsid'+boatids)
 	APIData({method:"PATCH",data: sentData, API_PATH: API_PATH});
+	this.props.allboats();
 }
   
 render() {

@@ -35,6 +35,8 @@ class BoatForm extends Component {
     this.getArrivalDate.value = '';
     this.getWorkDescription.value = '';
     this.getStatus.value = '';
+    
+    this.props.allboats()
 
   }
 render() {

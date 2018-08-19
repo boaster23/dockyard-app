@@ -67,16 +67,60 @@
     },
     {
       "name": "Boat 6",
-      "type": "Sunburst",
+      "type": "Ross 780",
       "photo": "http://via.placeholder.com/350x150/51A143",
       "length": "7",
-      "work_description": "needs a mast",
-      "arrival_date": "later",
-      "delivery_date": "now",
-      "status": "inactive",
+      "work_description": "replace bow",
+      "arrival_date": "finish",
+      "delivery_date": "now or later",
+      "status": "bowless",
       "id": 6,
       "detailview": false,
       "editing": false
+    },
+    {
+      "name": "Boat 7",
+      "type": "Elliot 5.9",
+      "photo": "http://via.placeholder.com/350x150/51A143",
+      "length": "7",
+      "work_description": "needs a rudder",
+      "arrival_date": "later",
+      "delivery_date": "now",
+      "status": "rudderlesss",
+      "id": 13
+    },
+    {
+      "name": "Boat 8",
+      "type": "Speed Boat",
+      "photo": "http://via.placeholder.com/350x150/269AB3",
+      "length": "7",
+      "work_description": "needs motor",
+      "arrival_date": "later",
+      "delivery_date": "now ",
+      "status": "motorless",
+      "id": 8
+    },
+    {
+      "name": "Boat 9",
+      "type": "Opptimist",
+      "photo": "http://via.placeholder.com/350x150/269AB3",
+      "length": "5",
+      "work_description": "needs work",
+      "arrival_date": "later",
+      "delivery_date": "now",
+      "status": "worker less",
+      "id": 9
+    },
+    {
+      "name": "boat 10",
+      "type": "j class",
+      "photo": "http://via.placeholder.com/350x150/269AB",
+      "length": "7",
+      "work_description": "patch hole",
+      "arrival_date": "later",
+      "delivery_date": "now\\",
+      "status": "ss",
+      "id": 10
     }
   ],
   "workers": [
@@ -87,7 +131,8 @@
       "photo": "http://via.placeholder.com/150x150/DE8142",
       "boatIds": [
         1,
-        3
+        6,
+        8
       ]
     },
     {
@@ -96,7 +141,6 @@
       "phone": "22222222",
       "photo": "http://via.placeholder.com/150x150/B66AA3",
       "boatIds": [
-        1,
         4,
         5,
         3

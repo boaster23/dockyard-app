@@ -55,11 +55,8 @@ class AllBoat extends Component {
 	console.log(this.props.boatsStore)
         return (
             <div>
-	      <div className="row">
-		  <div className="col-4">
-		 	<BoatForm /> 
-		  </div>
-		  <div className="col-8">
+		
+		  
 		     <div className="row">
 		 	{this.props.boatsStore.map((boat) => (
 		    		<div className="col-6" >
@@ -68,8 +65,8 @@ class AllBoat extends Component {
 		    		</div>
 			))}
 		     </div>
-		 </div>
-	      </div>
+		
+	     
             </div> 
 	   
         );
