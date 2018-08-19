@@ -1,7 +1,5 @@
 # Dockyard REST API Application
 
-## Coder:
-BM Broadhead
 
 ## About: 
 A sample REST API for retrieving records from a database. 
