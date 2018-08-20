@@ -19,9 +19,9 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res, next) {
-    model.boat.findAll({ where: {
-    id: req.params.id
-  }})
+    model.boat.hasMany(model.boat_worker, {foreignKey: 'boat_id'})
+    model.boat_worker.belongsTo(model.boat, {foreignKey: 'boat_id'})
+    model.boat_worker.findAll({ where: { boat_id: req.params.id}, include: [model.boat]})
         .then(boat => res.json({
             error: false,
             data: boat
