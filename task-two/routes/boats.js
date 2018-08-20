@@ -4,7 +4,7 @@ var router = express.Router();
 var model = require('../models/index');
  
 
-/* GET todo listing. */
+/* GET boats listing. */
 router.get('/', function (req, res, next) {
     model.boat.findAll({})
         .then(boats => res.json({
