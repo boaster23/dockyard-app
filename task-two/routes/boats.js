@@ -17,6 +17,21 @@ router.get('/', function (req, res, next) {
             error: error
         }));
 });
+
+router.get('/:id', function (req, res, next) {
+    model.boat.findAll({ where: {
+    id: req.params.id
+  }})
+        .then(boat => res.json({
+            error: false,
+            data: boat
+        }))
+        .catch(error => res.json({
+            error: true,
+            data: [],
+            error: error
+        }));
+});
  
 
 module.exports = router;
