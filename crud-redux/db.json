@@ -131,8 +131,8 @@
       "photo": "http://via.placeholder.com/150x150/DE8142",
       "boatIds": [
         1,
-        6,
-        8
+        3,
+        4
       ]
     },
     {
@@ -141,8 +141,6 @@
       "phone": "22222222",
       "photo": "http://via.placeholder.com/150x150/B66AA3",
       "boatIds": [
-        4,
-        5,
         3
       ]
     }

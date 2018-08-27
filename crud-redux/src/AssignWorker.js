@@ -35,11 +35,11 @@ fetchWorker() {
 		i=this.props.boats.filter((boat)=>boat.id == boatid);
 		(i.length ? boatIdArray.push({value: boatid, label: i[0].name}) : '');	
 	});
-	let optionsArr=[];
+	
    	let options = this.props.boats.map((boat) => {
-   	   optionsArr.push({value: boat.id , label: boat.name});
+   	   return {value: boat.id , label: boat.name};
    	});
-	this.setState({opts:optionsArr, selectedOption: boatIdArray});
+	this.setState({opts:options, selectedOption: boatIdArray});
 	
 }
 
